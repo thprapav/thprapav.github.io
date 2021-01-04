@@ -1,10 +1,7 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  important: true,
-  purge: {
-    content: ['./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}'],
-  },
+  purge: false,
   darkMode: 'class',
   theme: {
     extend: {
@@ -13,6 +10,8 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {},
+  },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
 };
