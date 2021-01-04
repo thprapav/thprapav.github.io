@@ -10,7 +10,7 @@ const IndexPage: FC = () => {
       <Head>
         <title>{content.title}</title>
       </Head>
-      <h1 className="text-green-500">{content.index.title}</h1>
+      <h1 className="text-green-500">{content.title}</h1>
     </>
   );
 };

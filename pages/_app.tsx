@@ -1,8 +1,21 @@
-import type { AppProps /*, AppContext */ } from 'next/app';
+import { FC, ReactNode } from 'react';
+import PageWithLayoutType from '../types';
+
 import '../global.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+type AppLayoutProps = {
+  Component: PageWithLayoutType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pageProps: any;
+};
 
-export default MyApp;
+const App: FC<AppLayoutProps> = ({ Component, pageProps }: AppLayoutProps) => {
+  const Layout = Component.layout || ((children: ReactNode) => <>{children}</>);
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
+};
+
+export default App;
