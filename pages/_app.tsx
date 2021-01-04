@@ -1,4 +1,5 @@
 import { FC, ReactNode } from 'react';
+import { ThemeProvider } from 'next-themes';
 import PageWithLayoutType from '../types';
 
 import '../global.css';
@@ -12,9 +13,11 @@ type AppLayoutProps = {
 const App: FC<AppLayoutProps> = ({ Component, pageProps }: AppLayoutProps) => {
   const Layout = Component.layout || ((children: ReactNode) => <>{children}</>);
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider attribute="class">
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   );
 };
 

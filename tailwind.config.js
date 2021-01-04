@@ -1,11 +1,22 @@
+const colors = require('tailwindcss/colors');
+const typography = require('@tailwindcss/typography');
+const aspectRatio = require('@tailwindcss/aspect-ratio');
+
 module.exports = {
   important: true,
   purge: {
-    content: ['./pages/**/*.tsx'],
+    content: ['./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}'],
   },
-  theme: {},
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        cyan: colors.cyan,
+      },
+    },
+  },
   variants: {},
-  plugins: [],
+  plugins: [typography, aspectRatio],
   future: {
     purgeLayersByDefault: true,
   },

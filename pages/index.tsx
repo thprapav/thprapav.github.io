@@ -1,16 +1,18 @@
 import Head from 'next/head';
 import { FC } from 'react';
 import MainLayout from '../components/layouts/MainLayout';
-import content from '../content.json';
 import PageWithLayoutType from '../types';
 
 const IndexPage: FC = () => {
   return (
     <>
-      <Head>
-        <title>{content.title}</title>
-      </Head>
-      <h1 className="text-green-500">{content.index.title}</h1>
+      <div className="text-center">
+        <Head>
+          <title>Dark mode with Tailwind and Next.js</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <h1 className="text:2xl">Dark mode with Tailwind and Next-themes</h1>
+      </div>
     </>
   );
 };

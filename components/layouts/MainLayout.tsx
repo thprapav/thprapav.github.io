@@ -1,12 +1,8 @@
-import { ReactNode } from 'react';
+import { LayoutInterface } from '../../types';
 
 import Header from '../Header';
 
-type LayoutProps = {
-  children: ReactNode;
-};
-
-const Layout: React.FunctionComponent<LayoutProps> = ({ children }: LayoutProps) => {
+const MainLayout: React.FunctionComponent<LayoutInterface> = ({ children }: LayoutInterface) => {
   return (
     <>
       <Header isMain={true} />
@@ -15,4 +11,4 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }: LayoutProps)
   );
 };
 
-export default Layout;
+export default MainLayout;
