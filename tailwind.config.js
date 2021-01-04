@@ -1,6 +1,4 @@
 const colors = require('tailwindcss/colors');
-const typography = require('@tailwindcss/typography');
-const aspectRatio = require('@tailwindcss/aspect-ratio');
 
 module.exports = {
   important: true,
@@ -16,8 +14,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [typography, aspectRatio],
-  future: {
-    purgeLayersByDefault: true,
-  },
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/aspect-ratio')],
 };
