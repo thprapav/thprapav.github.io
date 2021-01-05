@@ -39,4 +39,6 @@ module.exports =
           ],
         ],
       }
-    : commonPlugins;
+    : {
+        plugins: commonPlugins,
+      };

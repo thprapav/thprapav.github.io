@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { FC } from 'react';
 import ThemeLayout from '../../components/layouts/ThemeLayout';
 import content from '../../data/content.json';
-import FIRST_PAPER_DATA from '../../data/papers/first';
+import FIRST_PAPER_DATA from '../../data/papers/total-singulation';
 import PageWithLayoutType from '../../types';
 import Paper from '../../components/Paper';
 

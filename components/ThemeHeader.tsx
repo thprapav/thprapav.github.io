@@ -1,34 +1,38 @@
 import { ReactElement, useEffect, useState } from 'react';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 
 function ThemeHeader(): ReactElement {
-  const { theme, setTheme } = useTheme();
-  const [isMounted, setIsMounted] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+  const { pathname } = useRouter();
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  useEffect(() => setMounted(true), []);
 
-  const switchTheme = () => {
-    if (isMounted) {
-      setTheme(theme === 'light' ? 'dark' : 'light');
+  const toggleDarkMode = (checked: boolean) => {
+    const isDarkMode = checked;
+
+    if (isDarkMode) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
     }
   };
 
+  const isRoot = pathname === '/';
+  const isDarkMode = resolvedTheme === 'dark';
+
   return (
-    <nav className="absolute z-10 right-0">
+    <nav className="h-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex" />
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <button
-                type="button"
-                className="relative inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md dark:text-gray-200 text-gray-600 focus:outline-none"
-                onClick={switchTheme}
-              >
-                <span>{theme === 'light' ? 'dark' : 'light'}</span>
-              </button>
+          <div className="flex items-right mr-6">
+            <div className="flex-shrink-0 absolute z-10 top-4">
+              {mounted && (
+                <DarkModeSwitch checked={isDarkMode} onChange={toggleDarkMode} className={isRoot ? '28' : '24'} />
+              )}
             </div>
           </div>
         </div>
